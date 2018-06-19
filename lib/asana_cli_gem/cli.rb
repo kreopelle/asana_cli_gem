@@ -2,6 +2,8 @@
 
 class AsanaCliGem::CLI
 
+  attr_reader :poses
+
   def call
     # backbone of CLI, calls other methods (is there another name for this?)
     puts "Strengthening Yoga Poses:"
@@ -12,11 +14,7 @@ class AsanaCliGem::CLI
 
   def list_poses
     # where available asana objects will be listed for access
-    puts <<~DOC
-      1. Boat Pose
-      2. Chair Pose
-      3. Dolphin Plank Pose
-    DOC
+    @poses = AsanaCliGem::Asana.poses
   end
 
   def menu
