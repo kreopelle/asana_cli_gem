@@ -27,22 +27,18 @@ class AsanaCliGem::CLI
     input = gets.strip.downcase
     # normalizes text input
     if input != "exit"
-      input = input.to_i - 1
-      puts "Name: #{poses[input].name}"
-      puts "Sanskrit Name: #{poses[input].sanskrit}"
-      puts "#{poses[input].summary}"
-      puts "#{poses[input].tip}"
-      puts "#{poses[input].url}"
-      case input
-      when "1"
-        puts "More info on Boat Pose"
-      when "2"
-        puts "More info on Chair Pose"
-      when "list"
+      if input.to_i > 0
+        input = input.to_i - 1
+        puts "Name: #{poses[input].name}"
+        puts "Sanskrit Name: #{poses[input].sanskrit}"
+        puts "#{poses[input].summary}"
+        puts "Beginner's Tip: #{poses[input].tip}"
+        puts "To learn more, visit: #{poses[input].url}"
+      elsif input == "list"
         list_poses
       else
         puts "My apologies, I didn't recognize that input."
-      end
+    end
       menu
     end
   end
