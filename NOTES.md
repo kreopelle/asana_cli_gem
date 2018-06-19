@@ -2,7 +2,7 @@ Asana_CLI_Gem
 
 [X] Plan gem, imagine user interface
 [X] Start with project structure - Google
-[] Start with entry point, the file run
+[X] Start with entry point, the file run
 [] Force the build of CLI interface
 [] Stub out interface
 [] Start making things real
