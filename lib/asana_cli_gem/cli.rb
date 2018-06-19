@@ -15,6 +15,10 @@ class AsanaCliGem::CLI
   def list_poses
     # where available asana objects will be listed for access
     @poses = AsanaCliGem::Asana.poses
+    @poses.each_with_index do |pose, i|
+      puts "#{i+1}. #{pose.name}"
+    end
+
   end
 
   def menu
@@ -23,6 +27,12 @@ class AsanaCliGem::CLI
     input = gets.strip.downcase
     # normalizes text input
     if input != "exit"
+      input = input.to_i - 1
+      puts "Name: #{poses[input].name}"
+      puts "Sanskrit Name: #{poses[input].sanskrit}"
+      puts "#{poses[input].summary}"
+      puts "#{poses[input].tip}"
+      puts "#{poses[input].url}"
       case input
       when "1"
         puts "More info on Boat Pose"
