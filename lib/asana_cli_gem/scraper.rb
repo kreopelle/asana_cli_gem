@@ -14,4 +14,10 @@ class Scraper
     end
   end
 
+  def pose_url_collector
+    poses.css('a.m-card--header').collect do |pose|
+      pose.attribute("href").value
+    end
+  end
+
 end
