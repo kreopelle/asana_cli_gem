@@ -5,9 +5,18 @@ Asana_CLI_Gem
 [X] Start with entry point, the file run
 [X] Force the build of CLI interface
 [X] Stub out interface
-[] Start making things real
-[] Discover Objects
-[] Program
+[X] Start making things real
+[X] Discover Objects
+[X] Program
+[] Record 30 min coding session (now!) 
+[] Scrape data from site
+[] Use scraped data to create objects
+[] Send objects to CLI
+[] Refactor and beautify
+[] Complete Documentation
+[] Record Walkthrough
+[] Practice presenting
+
 
 Imagined User Interface
 Purpose: a command line interface to get more information about yoga poses
@@ -30,6 +39,5 @@ What is a pose?
 A pose has an English name
 A pose has a Sanskrit name
 A pose has a summary
-A pose has beginner's tips 
 A pose has benefits
 A pose has a link to the original listing
