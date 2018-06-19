@@ -18,7 +18,7 @@ class AsanaCliGem::CLI
   end
 
   def menu
-    puts "Enter the number of the pose you'd like to learn more about"
+    puts "Enter the number of the pose you'd like to learn more about, or type 'exit' to end program."
     input = gets.strip.downcase
     if input != "exit"
       case input
@@ -27,6 +27,7 @@ class AsanaCliGem::CLI
       when "2"
         puts "More info on Chair Pose"
       end
+      menu
     end
   end
 
