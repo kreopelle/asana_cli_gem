@@ -28,12 +28,23 @@ class Scraper
   def self.asana_generator
     self.pose_url_collector.each do |pose|
       pose = Nokogiri::HTML(open("https://www.yogajournal.com#{pose}"))
-      puts pose.css('div.m-detail-header--dek').text
+      puts pose.css('div.m-detail--body-item').text
     end
-
+    #”lyra-wrapper"/div[2]/div[2]/section/div[2]/section[2]/article/div/div[3]/section/div[1]/div[2]/p[13]
+    # /section[2]/article/div/div[3]/section/div[1]/div[2]/p[13]
+    # test_pose.css('#lyra-wrapper').css('div')[2].css('div')[2].css('section').css('div')[2].css('section')[2].css('article div').css('div')[3].css('section').css('div')[1].css('div')[2].css('p')[13]
+    # pose.summary => pose.css('div.m-detail-header--dek').text
     # pose.url => pose = Nokogiri::HTML(open("https://www.yogajournal.com#{pose}"))
     # pose.name => puts pose.css('h1').text
-
+    # pose.sanskrit => pose.css('p')[13].text
+    # pose.tip => pose.css('p')[16].text
+    # pose_tip => test_pose.css('div.m-detail--body').css('h3').select do |tag|
+      # tag.text == "Beginner's Tip"
+    # end
+    # sanskrit =>
+    # test = Nokogiri::HTML(open("https://www.yogajournal.com/poses/chair-pose"))
+    # test.css('div.m-detail--body').css('h3 + p').text if test.css('div.m-detail--body').css('h3').text == "Sanskrit Name"
+    # could stop here, or, send over the name and url to the object now, and add beginner's tip and sanskrit later?
   end
 
 end
