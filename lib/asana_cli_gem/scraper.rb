@@ -27,7 +27,11 @@ class Scraper
 
   def self.asana_generator
     self.pose_url_collector.each do |pose|
-      pose = Nokogiri::HTML(open("https://www.yogajournal.com#{pose}"))
+      pose = Asana.new
+      pose.url = "https://www.yogajournal.com#{pose}"
+      pose_scraper = Nokogiri::HTML(open(pose.url))
+      pose.name = pose.css('h1').text
+      pose.url = 
       puts pose.css('div.m-detail--body-item').text
     end
     #”lyra-wrapper"/div[2]/div[2]/section/div[2]/section[2]/article/div/div[3]/section/div[1]/div[2]/p[13]
