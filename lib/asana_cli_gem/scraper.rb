@@ -3,12 +3,6 @@ require 'open-uri'
 class AsanaCliGem::Scraper
 
   @@site = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))
-  #def self.pose_name_collector
-  ## current scrape includes non-pose articles on the page too, need to get them out
-  #  site.css('.m-card--header').collect do |pose|
-  #    pose.css('h2').text
-  #  end
-  #end
 
   def self.site
     @@site
@@ -28,23 +22,16 @@ class AsanaCliGem::Scraper
       name = pose_scraper.css('h1').text
       summary = pose_scraper.css('div.m-detail-header--dek').text
       new_pose = AsanaCliGem::Asana.new(name, summary, url)
+      extra_attributes = {}
+      pose_scraper.css('div.m-detail--body h3').each do |attribute|
+        extra_attributes[attribute.text] = attribute.css('+p').text
+      end
+      # Potential expansion issue: Current iterator doesn't grab ul's
+      new_pose.sanskrit = extra_attributes["Sanskrit Name"] if extra_attributes["Sanskrit Name"] != nil
+      new_pose.tip = extra_attributes["Beginner's Tip"] if extra_attributes["Beginner's Tip"] != nil
       new_pose.save
-      binding.pry
-      #pose.sanskrit = TBD
-      #pose.tip = TBD
     end
-
-  # test = Nokogiri::HTML(open("https://www.yogajournal.com/poses/chair-pose"))
-  #sample = {}
-  #test.css('div.m-detail--body h3').each do |item|
-  #  sample[item.text] = item.css('+p').text
-  #end
-  #new_pose.sanskrit = sample["Sanskrit Name"]
-  #new_pose.tip = sample["Beginner's Tip"]
-  # New issue: Current iterator does not grab UL's
-
-
   end
-
+    binding.pry
 
 end
