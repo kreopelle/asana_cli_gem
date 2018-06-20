@@ -5,6 +5,10 @@ class AsanaCliGem::CLI
   attr_reader :poses
 
   def call
+    puts "Welcome to the Asana Finder CLI!"
+    puts "You can learn more about different strengthening yoga poses,"
+    puts "known in Sanskrit as asanas, in this app. Type anything to continue."
+    continue = gets.strip
     make_poses
     puts "Strengthening Yoga Poses:"
     list_poses
