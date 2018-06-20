@@ -23,10 +23,9 @@ class Scraper
       pose.attribute("href").value
     end
   end
-  binding.pry
 
   def self.asana_generator
-    self.pose_url_collector.each do |pose|
+    pose_url_collector.each do |pose|
       url = "https://www.yogajournal.com#{pose}"
       pose_scraper = Nokogiri::HTML(open(url))
       name = pose_scraper.css('h1').text
@@ -36,27 +35,16 @@ class Scraper
       #pose.sanskrit = TBD
       #pose.tip = TBD
     end
+    binding.pry 
+  # test = Nokogiri::HTML(open("https://www.yogajournal.com/poses/chair-pose"))
+  #sample = {}
+  #test.css('div.m-detail--body h3').each do |item|
+  #  sample[item.text] = item.css('+p').text
+  #end
+  #new_pose.sanskrit = sample["Sanskrit Name"]
+  #new_pose.tip = sample["Beginner's Tip"]
+  # New issue: Current iterator does not grab UL's
 
-    # pose.sanskrit => pose.css('p')[13].text
-    # pose.tip => pose.css('p')[16].text
-    # pose_tip => test_pose.css('div.m-detail--body').css('h3').select do |tag|
-      # tag.text == "Beginner's Tip"
-    # end
-    # test = Nokogiri::HTML(open("https://www.yogajournal.com/poses/chair-pose"))
-    # test.css('div.m-detail--body').css('h3 + p').text if test.css('div.m-detail--body').css('h3').text == "Sanskrit Name"
-    # could stop here, or, send over the name and url to the object now, and add beginner's tip and sanskrit later?
-    # YAYYYYY!!!!!! only issue is that it does not grab ul's, so need to perhaps include some conditional statements? 
-    # New issues: Deleting the additional poses at the end of a page, Grabbing the UL's
-
-  sample = {}
-  test.css('div.m-detail--body h3').each do |item|
-    sample[item.text] = item.css('+p').text
-  end
-
-  sample = {}
-  test.css('div.m-detail--body h3').each do |item|
-    sample[item.text] = item.css('+p').text
-  end
 
   end
 
