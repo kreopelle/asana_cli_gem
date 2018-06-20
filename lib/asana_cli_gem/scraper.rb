@@ -45,6 +45,19 @@ class Scraper
     # test = Nokogiri::HTML(open("https://www.yogajournal.com/poses/chair-pose"))
     # test.css('div.m-detail--body').css('h3 + p').text if test.css('div.m-detail--body').css('h3').text == "Sanskrit Name"
     # could stop here, or, send over the name and url to the object now, and add beginner's tip and sanskrit later?
+    # YAYYYYY!!!!!! only issue is that it does not grab ul's, so need to perhaps include some conditional statements? 
+    # New issues: Deleting the additional poses at the end of a page, Grabbing the UL's
+
+  sample = {}
+  test.css('div.m-detail--body h3').each do |item|
+    sample[item.text] = item.css('+p').text
+  end
+
+  sample = {}
+  test.css('div.m-detail--body h3').each do |item|
+    sample[item.text] = item.css('+p').text
+  end
+
   end
 
 end
