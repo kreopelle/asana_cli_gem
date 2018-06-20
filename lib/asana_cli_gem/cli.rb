@@ -5,7 +5,6 @@ class AsanaCliGem::CLI
   attr_reader :poses
 
   def call
-    # backbone of CLI, calls other methods (is there another name for this?)
     make_poses
     puts "Strengthening Yoga Poses:"
     list_poses
@@ -22,7 +21,6 @@ class AsanaCliGem::CLI
   end
 
   def list_poses
-    # where available asana objects will be listed for access
     poses.each_with_index do |pose, i|
       puts "#{i+1}. #{pose.name}"
     end
@@ -34,7 +32,7 @@ class AsanaCliGem::CLI
     input = gets.strip.downcase
     # normalizes text input
     if input != "exit"
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < poses.size + 1
         input = input.to_i - 1
         selected_pose = poses[input]
         puts "Name: #{selected_pose.name}"

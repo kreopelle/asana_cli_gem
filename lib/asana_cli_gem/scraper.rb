@@ -9,11 +9,11 @@ class AsanaCliGem::Scraper
   end
 
   def self.pose_url_collector
-    self.site.css('a.m-card--header').collect do |pose|
+    self.site.css('#lyra-wrapper > div.m-page-wrapper > div.m-advertisement-off-canvas--pusher > section > div.m-page > section.m-tile-hub.m-component-stack.mm-component-stack--is-stacked')
+    .css('a.m-card--header').collect do |pose|
       pose.attribute("href").value
     end
   end
-
 
   def self.asana_generator
     pose_url_collector.each do |pose|
