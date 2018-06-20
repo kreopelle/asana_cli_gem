@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 #tell interpreter to use Ruby for this file using Shebang line
 #execution point for program
-require 'bundler/setup'
-require './lib/asana_cli_gem'
+require_relative '../lib/asana_cli_gem'
 
 AsanaCliGem::CLI.new.call
