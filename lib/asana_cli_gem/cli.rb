@@ -6,10 +6,15 @@ class AsanaCliGem::CLI
 
   def call
     # backbone of CLI, calls other methods (is there another name for this?)
+    make_poses
     puts "Strengthening Yoga Poses:"
     list_poses
     menu
     goodbye
+  end
+
+  def make_poses
+    AsanaCliGem::Scraper.asana_generator
   end
 
   def poses
