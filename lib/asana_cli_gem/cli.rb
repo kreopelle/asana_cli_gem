@@ -14,11 +14,10 @@ class AsanaCliGem::CLI
 
   def list_poses
     # where available asana objects will be listed for access
-    @poses = AsanaCliGem::Asana.poses
-    @poses.each_with_index do |pose, i|
+    poses = AsanaCliGem::Asana.all
+    poses.each_with_index do |pose, i|
       puts "#{i+1}. #{pose.name}"
     end
-
   end
 
   def menu
@@ -45,6 +44,7 @@ class AsanaCliGem::CLI
 
   def goodbye
     # exit message
+    puts "Thank you for visiting the Asana CLI Gem!"
     puts "Namaste"
   end
 
