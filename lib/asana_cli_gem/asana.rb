@@ -1,3 +1,5 @@
+# The Object Class
+
 class AsanaCliGem::Asana
 
   attr_accessor :name, :sanskrit, :summary, :tip, :url
@@ -11,7 +13,7 @@ class AsanaCliGem::Asana
 
   def self.all
     @@all
-  end 
+  end
 
   def save
     self.class.all << self

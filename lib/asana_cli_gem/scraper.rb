@@ -1,9 +1,8 @@
-require 'nokogiri'
 require 'open-uri'
-require 'pry'
 
 class AsanaCliGem::Scraper
 
+  @@site = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))
   #def self.pose_name_collector
   ## current scrape includes non-pose articles on the page too, need to get them out
   #  site.css('.m-card--header').collect do |pose|
@@ -11,9 +10,12 @@ class AsanaCliGem::Scraper
   #  end
   #end
 
+  def self.site
+    @@site
+  end
+
   def self.pose_url_collector
-    site = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))# current scrape includes non-pose urls on the page too, need to get them out
-    site.css('a.m-card--header').collect do |pose|
+    self.site.css('a.m-card--header').collect do |pose|
       pose.attribute("href").value
     end
   end
@@ -21,11 +23,13 @@ class AsanaCliGem::Scraper
 
   def self.asana_generator
     pose_url_collector.each do |pose|
-      pose_scraper = Nokogiri::HTML(open("https://www.yogajournal.com#{pose}"))
+      url = "https://www.yogajournal.com#{pose}"
+      pose_scraper = Nokogiri::HTML(open(url))
       name = pose_scraper.css('h1').text
       summary = pose_scraper.css('div.m-detail-header--dek').text
       new_pose = AsanaCliGem::Asana.new(name, summary, url)
       new_pose.save
+      binding.pry
       #pose.sanskrit = TBD
       #pose.tip = TBD
     end
@@ -41,6 +45,6 @@ class AsanaCliGem::Scraper
 
 
   end
-    binding.pry
+
 
 end
