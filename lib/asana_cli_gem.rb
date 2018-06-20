@@ -1,3 +1,6 @@
+require 'pry'
+require 'nokogiri'
+
 require_relative './asana_cli_gem/version'
 require_relative './asana_cli_gem/cli'
 require_relative './asana_cli_gem/asana'
