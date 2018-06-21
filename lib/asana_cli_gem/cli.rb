@@ -4,7 +4,7 @@ class AsanaCliGem::CLI
 
   def call
     welcome
-    AsanaCliGem::Scraper.new.asana_generator
+    AsanaCliGem::Scraper.new.pose_collector
     list_poses
     menu
     goodbye
@@ -35,6 +35,7 @@ class AsanaCliGem::CLI
       if input.to_i > 0 && input.to_i <= poses.size
         input = input.to_i - 1
         selected_pose = poses[input]
+        AsanaCliGem::Scraper.self
         puts "Name: #{selected_pose.name}"
         puts "Sanskrit Name: #{selected_pose.sanskrit}" if selected_pose.sanskrit
         puts selected_pose.summary
