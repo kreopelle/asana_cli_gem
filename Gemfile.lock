@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     asana_cli_gem (0.1.0)
+      nokogiri
 
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.2)
+    gem-release (2.0.1)
     method_source (0.9.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.2)
@@ -15,7 +17,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     rake (10.4.2)
-    require_all (2.0.0)
 
 PLATFORMS
   ruby
@@ -23,10 +24,9 @@ PLATFORMS
 DEPENDENCIES
   asana_cli_gem!
   bundler (~> 1.16)
-  nokogiri
+  gem-release
   pry
   rake (~> 10.0)
-  require_all
 
 BUNDLED WITH
    1.16.2
