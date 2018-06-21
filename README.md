@@ -1,6 +1,6 @@
 # AsanaCliGem
 
-This Ruby Gem provides a CLI to view strengthening yoga poses as presented by Yoga Journal's online pose library.
+This Ruby gem provides a CLI to view strengthening yoga poses as presented by Yoga Journal's online pose library.
 
 ## Installation
 
