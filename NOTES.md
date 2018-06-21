@@ -63,7 +63,7 @@ CLI Essentials *
 [X]  Have a CLI for interfacing with the application
 [X]  Pull data from an external source
 [X]  Implement both list and detail views. The data provided must go at least one level deep, generally by showing the user a list of available data and then being able to drill down into a specific item
-[]  The application is pretty DRY
+[X]  The application is pretty DRY
 
 Ruby Essentials *
 [X]  Basic control flow - how "if" statements work
