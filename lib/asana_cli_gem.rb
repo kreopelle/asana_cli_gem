@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'pry'
 require 'open-uri'
 
 require_relative './asana_cli_gem/version'
