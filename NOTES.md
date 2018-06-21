@@ -13,13 +13,17 @@ To-do list:
 [X] Scrape data from site
 [X] Use scraped data to create objects
 [X] Send objects to CLI
-[] Refactor and beautify
-[] Complete Documentation
+[X] Refactor and beautify
+[X] Complete Documentation
 [] Record Walkthrough
 [] Practice presenting
 
-Optional extension:
+Optional extensions:
 [] Split scraping between list/detail views (Check to see if you can get to URLs from CLI)
+[] Clean up asana generator
+[] Formatting
+[] Review just 10 poses at first, then have option to view more?
+[] Go through all pose types, not just the strengthning yoga poses
 
 Question:
 [] How to include ul's in hash scrape

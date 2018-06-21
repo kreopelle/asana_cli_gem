@@ -1,19 +1,20 @@
-# The CLI Controller
-
 class AsanaCliGem::CLI
 
   attr_reader :poses
 
   def call
-    puts "Welcome to the Asana Finder CLI!"
-    puts "You can learn more about different strengthening yoga poses, known in Sanskrit as asanas, in this app."
-    puts "Type anything to continue."
-    continue = gets.strip
+    welcome
     make_poses
-    puts "Strengthening Yoga Poses:"
     list_poses
     menu
     goodbye
+  end
+
+  def welcome
+    puts "Welcome to the Asana Finder CLI!"
+    puts "Learn more about different strengthening yoga poses, known in Sanskrit as asanas."
+    puts "Type anything to continue."
+    gets.strip
   end
 
   def make_poses
@@ -25,6 +26,7 @@ class AsanaCliGem::CLI
   end
 
   def list_poses
+    puts "Strengthening Yoga Poses:"
     poses.each_with_index do |pose, i|
       puts "#{i+1}. #{pose.name}"
     end
@@ -34,7 +36,7 @@ class AsanaCliGem::CLI
     puts "Please enter the number of the pose you'd like to learn more about, type list to see all poses, or exit to end program."
     input = gets.strip.downcase
     if input != "exit"
-      if input.to_i > 0 && input.to_i < poses.size + 1
+      if input.to_i > 0 && input.to_i <= poses.size
         input = input.to_i - 1
         selected_pose = poses[input]
         puts "Name: #{selected_pose.name}"
@@ -46,10 +48,9 @@ class AsanaCliGem::CLI
         list_poses
       else
         puts "My apologies, I didn't recognize that input."
+      end
+    menu
     end
-      menu
-    end
-    binding.pry
   end
 
   def goodbye
