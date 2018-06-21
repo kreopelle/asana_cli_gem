@@ -1,9 +1,4 @@
 class AsanaCliGem::Scraper
-  attr_accessor :url
-
-  def initialize(url = nil)
-    @url = url
-  end
 
   def pose_collector
     doc = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))
