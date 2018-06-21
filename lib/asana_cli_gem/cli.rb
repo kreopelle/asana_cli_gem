@@ -60,7 +60,7 @@ class AsanaCliGem::CLI
   end
 
   def goodbye
-    puts "Thank you for visiting the Asana CLI Gem!"
+    puts "Thank you for using the Asana CLI Gem!"
     puts "Namaste."
   end
 
