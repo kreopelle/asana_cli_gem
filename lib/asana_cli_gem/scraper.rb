@@ -1,19 +1,20 @@
 class AsanaCliGem::Scraper
 
-  @@site = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))
+  # def scrape_asanas
+  #   @doc = ...
+  #   @doc.css ..
+  #   look at just inner level for all properties at once
+  # end
 
-  def self.site
-    @@site
-  end
-
-  def self.pose_url_collector
-    self.site.css('#lyra-wrapper > div.m-page-wrapper > div.m-advertisement-off-canvas--pusher > section > div.m-page > section.m-tile-hub.m-component-stack.mm-component-stack--is-stacked')
+  def pose_url_collector
+    @doc = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))
+    @doc.css('#lyra-wrapper > div.m-page-wrapper > div.m-advertisement-off-canvas--pusher > section > div.m-page > section.m-tile-hub.m-component-stack.mm-component-stack--is-stacked')
     .css('a.m-card--header').collect do |pose|
       pose.attribute("href").value
     end
   end
 
-  def self.asana_generator
+  def asana_generator
     pose_url_collector.each do |pose|
       url = "https://www.yogajournal.com#{pose}"
       pose_scraper = Nokogiri::HTML(open(url))
@@ -29,5 +30,9 @@ class AsanaCliGem::Scraper
       new_pose.save
     end
   end
+
+#  def asana_generator
+#    pose_url_collector.each do |pose|
+
 
 end
