@@ -4,7 +4,7 @@ class AsanaCliGem::CLI
 
   def call
     welcome
-    make_poses
+    AsanaCliGem::Scraper.new.asana_generator
     list_poses
     menu
     goodbye
@@ -15,10 +15,6 @@ class AsanaCliGem::CLI
     puts "Learn more about different strengthening yoga poses, known in Sanskrit as asanas."
     puts "Type anything to continue."
     gets.strip
-  end
-
-  def make_poses
-    AsanaCliGem::Scraper.asana_generator
   end
 
   def poses
@@ -41,7 +37,7 @@ class AsanaCliGem::CLI
         selected_pose = poses[input]
         puts "Name: #{selected_pose.name}"
         puts "Sanskrit Name: #{selected_pose.sanskrit}" if selected_pose.sanskrit
-        puts "#{selected_pose.summary}"
+        puts selected_pose.summary
         puts "Beginner's Tip: #{selected_pose.tip}" if selected_pose.tip
         puts "To learn more, visit: #{selected_pose.url}"
       elsif input == "list"
