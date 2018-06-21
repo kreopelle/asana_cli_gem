@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Run $ asana_cli_gem below after installing the gem.
+Run $ asana-cli-gem below after installing the gem.
 
 ## Development
 
