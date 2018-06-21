@@ -19,11 +19,10 @@ To-do list:
 [] Practice presenting
 
 Optional extensions:
-[] Split scraping between list/detail views (Check to see if you can get to URLs from CLI)
-[] Clean up asana generator
+[X] Split scraping between list/detail views (Check to see if you can get to URLs from CLI)
+[X] Clean up asana generator
 [] Formatting
-[] Review just 10 poses at first, then have option to view more?
-[] Go through all pose types, not just the strengthning yoga poses
+[] Go through all pose types, not just the strengthening yoga poses
 
 Question:
 [] How to include ul's in hash scrape

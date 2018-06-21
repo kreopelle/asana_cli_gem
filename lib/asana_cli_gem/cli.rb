@@ -1,10 +1,11 @@
 class AsanaCliGem::CLI
-
+  attr_accessor :scraper
   attr_reader :poses
 
   def call
     welcome
-    AsanaCliGem::Scraper.new.pose_collector
+    @scraper = AsanaCliGem::Scraper.new
+    scraper.pose_collector
     list_poses
     menu
     goodbye
@@ -35,7 +36,7 @@ class AsanaCliGem::CLI
       if input.to_i > 0 && input.to_i <= poses.size
         input = input.to_i - 1
         selected_pose = poses[input]
-        AsanaCliGem::Scraper.self
+        scraper.asana_details(selected_pose.url) if selected_pose.summary == nil
         puts "Name: #{selected_pose.name}"
         puts "Sanskrit Name: #{selected_pose.sanskrit}" if selected_pose.sanskrit
         puts selected_pose.summary
@@ -48,6 +49,7 @@ class AsanaCliGem::CLI
       end
     menu
     end
+    binding.pry
   end
 
   def goodbye
