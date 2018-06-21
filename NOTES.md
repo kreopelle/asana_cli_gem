@@ -47,3 +47,26 @@ A pose has a Sanskrit name
 A pose has a summary
 A pose has beginner's tips
 A pose has a link to the original listing
+
+Final Checklist
+
+README file contains the following sections: *
+[X]  A short description
+[X]  Install instructions
+[X]  A contributor's guide
+[X]  A link to the license for your code
+
+CLI Essentials *
+[X]  Have a CLI for interfacing with the application
+[X]  Pull data from an external source
+[X]  Implement both list and detail views. The data provided must go at least one level deep, generally by showing the user a list of available data and then being able to drill down into a specific item
+[]  The application is pretty DRY
+
+Ruby Essentials *
+[X]  Basic control flow - how "if" statements work
+  Variable scopes - method, instance and class
+  Object instantiation - #new (and possibly #initialize)
+  The meaning of the "self" keyword
+  Method types - class vs. instance methods
+  Method return types - knowing what methods return
+  Iterating through collections - at least using #each with a block

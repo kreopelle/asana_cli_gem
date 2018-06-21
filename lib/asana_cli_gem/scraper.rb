@@ -21,17 +21,15 @@ class AsanaCliGem::Scraper
       pose_scraper = Nokogiri::HTML(open(url))
       name = pose_scraper.css('h1').text
       summary = pose_scraper.css('div.m-detail-header--dek').text
-      new_pose = AsanaCliGem::Asana.new(name, summary, url)
       extra_attributes = {}
       pose_scraper.css('div.m-detail--body h3').each do |attribute|
         extra_attributes[attribute.text] = attribute.css('+p').text
       end
-      # Potential expansion issue: Current iterator doesn't grab ul's
-      new_pose.sanskrit = extra_attributes["Sanskrit Name"]
-      new_pose.tip = extra_attributes["Beginner's Tip"]
+      new_pose = AsanaCliGem::Asana.new(name, summary, url)
+      new_pose.sanskrit = extra_attributes["Sanskrit Name"] if extra_attributes["Sanskrit Name"] != nil
+      new_pose.tip = extra_attributes["Beginner's Tip"] if extra_attributes["Beginner's Tip"] != nil
       new_pose.save
     end
   end
-    binding.pry
 
 end
