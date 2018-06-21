@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class AsanaCliGem::Scraper
 
   @@site = Nokogiri::HTML(open('https://www.yogajournal.com/poses/types/strength'))

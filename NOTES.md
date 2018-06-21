@@ -64,9 +64,9 @@ CLI Essentials *
 
 Ruby Essentials *
 [X]  Basic control flow - how "if" statements work
-  Variable scopes - method, instance and class
-  Object instantiation - #new (and possibly #initialize)
-  The meaning of the "self" keyword
-  Method types - class vs. instance methods
-  Method return types - knowing what methods return
-  Iterating through collections - at least using #each with a block
+[X]  Variable scopes - method, instance and class
+[X]  Object instantiation - #new (and possibly #initialize)
+[X]  The meaning of the "self" keyword
+[X]  Method types - class vs. instance methods
+[X]  Method return types - knowing what methods return
+[X]  Iterating through collections - at least using #each with a block

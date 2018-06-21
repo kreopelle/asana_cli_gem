@@ -6,8 +6,8 @@ class AsanaCliGem::CLI
 
   def call
     puts "Welcome to the Asana Finder CLI!"
-    puts "You can learn more about different strengthening yoga poses,"
-    puts "known in Sanskrit as asanas, in this app. Type anything to continue."
+    puts "You can learn more about different strengthening yoga poses, known in Sanskrit as asanas, in this app."
+    puts "Type anything to continue."
     continue = gets.strip
     make_poses
     puts "Strengthening Yoga Poses:"
@@ -31,18 +31,16 @@ class AsanaCliGem::CLI
   end
 
   def menu
-    # user interaction interface
     puts "Please enter the number of the pose you'd like to learn more about, type list to see all poses, or exit to end program."
     input = gets.strip.downcase
-    # normalizes text input
     if input != "exit"
       if input.to_i > 0 && input.to_i < poses.size + 1
         input = input.to_i - 1
         selected_pose = poses[input]
         puts "Name: #{selected_pose.name}"
-        puts "Sanskrit Name: #{selected_pose.sanskrit}" if selected_pose.sanskrit != nil
+        puts "Sanskrit Name: #{selected_pose.sanskrit}" if selected_pose.sanskrit
         puts "#{selected_pose.summary}"
-        puts "Beginner's Tip: #{selected_pose.tip}" if selected_pose.tip != nil
+        puts "Beginner's Tip: #{selected_pose.tip}" if selected_pose.tip
         puts "To learn more, visit: #{selected_pose.url}"
       elsif input == "list"
         list_poses
@@ -51,12 +49,12 @@ class AsanaCliGem::CLI
     end
       menu
     end
+    binding.pry
   end
 
   def goodbye
-    # exit message
     puts "Thank you for visiting the Asana CLI Gem!"
-    puts "Namaste"
+    puts "Namaste."
   end
 
 end
