@@ -12,9 +12,7 @@ class AsanaCliGem::CLI
 
   def welcome
     puts "Welcome to the Asana Finder CLI!"
-    puts "Learn more about different strengthening yoga poses, known in Sanskrit as asanas."
-    puts "Type anything to continue."
-    gets.strip
+    puts "Learn more about strengthening yoga poses, known in Sanskrit as asanas."
   end
 
   def poses
@@ -30,13 +28,11 @@ class AsanaCliGem::CLI
   end
 
   def menu
-    puts "Please enter the number of the pose you'd like to learn more about, type list to see all poses, or exit to end program."
+    puts "Please enter the number of the pose you'd like to learn more about, 'list' to see all poses, or 'exit' to end program."
     input = gets.strip.downcase
 
     if input != "exit"
-
       if input.to_i > 0 && input.to_i <= poses.size
-
         input = input.to_i - 1
         selected_pose = poses[input]
 
