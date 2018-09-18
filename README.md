@@ -1,6 +1,6 @@
 # Asana-Cli-Gem
 
-This Ruby gem provides a CLI to view strengthening yoga poses as presented by Yoga Journal's online pose library. It uses Nokogiri to scrape the site.
+This Ruby gem provides a CLI to view information about strengthening yoga poses by scraping Yoga Journal's online pose library using Nokogiri. To learn more, please view my [demo video](https://youtu.be/J5LvpTjxERw) or read [my blog](http://kaylareopelle.com/building_the_cli_data_gem_project) about building the program.
 
 ## Installation
 
